@@ -6,11 +6,11 @@ class Block{
         this.timestamp = this.timestamp
         this.data = this.data
         this.previousHash = "0"
-        this.hash = this.calculatestHash()
+        this.hash = this.calculateHash()
         this.none = 0
     }
 
-    calculatestHash(){
+    calculateHash(){
         return SHA256(this.index + this.previousHash + this.timestamp + this.data + this.hash).toString()
     }
 
