@@ -1,6 +1,4 @@
 const Block = require('./block');
-const SHA256 = require('crypto-js/sha256')
-
 class Blockchain{
     constructor(){
         this.chain = [this.createGenesis()]
@@ -23,7 +21,9 @@ class Blockchain{
         for(let i = 1; i < this.chain.length; i++){
             const currentBlock = this.chain[i]
             const previousBlock = this.chain[i-1]
-
+            console.log(currentBlock.hash)
+            console.log(currentBlock.calculateHash())
+            console.log("---")
             if(currentBlock.hash !== currentBlock.calculateHash()){
                 return false
             }
