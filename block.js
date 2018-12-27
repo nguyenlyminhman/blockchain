@@ -1,4 +1,5 @@
 const SHA256 = require('crypto-js/sha256')
+const logger = exports.Logger = {}
 
 class Block{
     constructor(timestamp, data){
@@ -15,7 +16,12 @@ class Block{
     }
 
     mineBlock(difficulty){
-
+        while(this.hash.substring(0, difficulty)){
+            this.nonce++;
+            this.hash = this.calculateHash();
+        }
+        console.log("Block mined: " + this.hash)
+        
     }
 }
  
